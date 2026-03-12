@@ -1,0 +1,132 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Playfair Display", "Georgia", serif;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 30 20% 95%;
+    --foreground: 20 15% 15%;
+    --card: 30 40% 97%;
+    --card-foreground: 20 15% 15%;
+    --popover: 30 40% 97%;
+    --popover-foreground: 20 15% 15%;
+    --primary: 30 25% 75%;
+    --primary-foreground: 20 15% 15%;
+    --secondary: 30 100% 98%;
+    --secondary-foreground: 20 15% 15%;
+    --muted: 30 15% 60%;
+    --muted-foreground: 20 10% 35%;
+    --accent: 20 30% 45%;
+    --accent-foreground: 30 100% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 30% 88%;
+    --input: 30 100% 98%;
+    --ring: 30 25% 75%;
+    --radius: 0.75rem;
+    
+    /* Gallery Specific Tokens */
+    --lightbox-overlay: rgba(10, 10, 10, 0.95);
+    --gallery-transition: 300ms;
+  }
+
+  .dark {
+    --background: 20 15% 12%;
+    --foreground: 30 20% 95%;
+    --card: 20 15% 15%;
+    --card-foreground: 30 20% 95%;
+    --popover: 20 15% 15%;
+    --popover-foreground: 30 20% 95%;
+    --primary: 20 30% 45%;
+    --primary-foreground: 30 100% 98%;
+    --secondary: 20 15% 20%;
+    --secondary-foreground: 30 20% 95%;
+    --muted: 20 10% 25%;
+    --muted-foreground: 30 15% 70%;
+    --accent: 30 25% 75%;
+    --accent-foreground: 20 15% 15%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 15% 25%;
+    --input: 20 15% 20%;
+    --ring: 20 30% 45%;
+    
+    /* Gallery Specific Tokens */
+    --lightbox-overlay: rgba(0, 0, 0, 0.98);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-sm font-medium text-muted-foreground hover:text-accent transition-colors duration-300 py-1;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-in-out;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Gallery Styles */
+  .gallery-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  .gallery-item {
+    @apply relative overflow-hidden rounded-xl cursor-pointer bg-muted;
+    transform: translateZ(0); /* Force GPU acceleration */
+  }
+
+  .gallery-image {
+    @apply w-full h-full object-cover transition-transform duration-300 ease-out;
+  }
+
+  .gallery-item:hover .gallery-image {
+    @apply scale-105;
+  }
+
+  .gallery-item::after {
+    content: '';
+    @apply absolute inset-0 bg-black/0 transition-colors duration-300 ease-out pointer-events-none;
+  }
+
+  .gallery-item:hover::after {
+    @apply bg-black/10;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
