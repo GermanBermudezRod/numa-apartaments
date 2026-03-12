@@ -13,8 +13,9 @@ extensions: ['.jsx', '.js', '.tsx', '.ts', '.json'],
 alias: {
 '@': path.resolve(__dirname, './src'),
 },
+dedupe: ['react', 'react-dom'],
 },
 build: {
-outDir: '../../dist/apps/web',
+outDir: 'dist',
 },
 });
