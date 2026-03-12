@@ -59,12 +59,13 @@ const Header = ({ onOpenReservation }) => {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="hover:bg-secondary transition-colors duration-300"
+              className="hover:bg-secondary transition-colors duration-300 text-foreground"
+              aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             >
               {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 text-foreground" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 text-foreground" />
               )}
             </Button>
           </div>

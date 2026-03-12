@@ -72,7 +72,7 @@ const EditableFloorSections = ({
         </motion.div>
 
         <Tabs defaultValue="bajo" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 bg-card p-1 rounded-xl shadow-sm">
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 bg-card p-1 rounded-xl shadow-sm gap-2">
             {floors.map(floor => {
               const Icon = floor.icon;
               return (
